@@ -1,0 +1,81 @@
+.menuBottomContents {
+  position: absolute;
+  bottom: 12px;
+  left: 0px;
+  width: 100%;
+}
+
+.menuBottomContents .btn {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 700;
+  padding: 8.5px 18px;
+}
+
+.menuBottomContents .btn-outline-dark {
+  color: #191A1E;
+  border-color: #000000;
+}
+
+.menuBottomContents .btn-outline-dark:hover {
+  color: #fff;
+  background-color: #191A1E;
+  border-color: #000000;
+}
+
+.copyright {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #000;
+  margin-top: 24px;
+}
+
+.darkContent .menuBottomContents .btn-outline-dark {
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+.darkContent .menuBottomContents .btn-outline-dark:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: #191A1E;
+}
+
+.darkContent .copyright {
+  color: #fff;
+}
+
+@media (max-width: 991px) {
+  .menuBottomContents .btn-outline-dark {
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+  }
+
+  .menuBottomContents .btn-outline-dark:hover {
+    background-color: #fff;
+    border-color: #fff;
+  }
+
+  .copyright {
+    color: #fff;
+  }
+
+  .darkContent .menuBottomContents .btn-outline-dark {
+    color: #191A1E;
+    border-color: #000000;
+  }
+
+  .darkContent .menuBottomContents .btn-outline-dark:hover {
+    color: #fff;
+    background-color: #191A1E;
+    border-color: #000000;
+  }
+
+  .darkContent .copyright {
+    color: #000;
+  }
+}

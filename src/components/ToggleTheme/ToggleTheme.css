@@ -1,0 +1,49 @@
+.siteModeContent {
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  background-color: #fff;
+}
+
+.darkContent .siteModeContent {
+  border: 1px solid #FFFFFF;
+  background-color: #191A1E;
+}
+
+.siteMode {
+  width: 32px;
+  height: 32px;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center 0px;
+  cursor: pointer;
+}
+
+.darkContent .siteMode {
+  background-position: center -32px;
+}
+
+@media (max-width: 991px) {
+  .siteModeContent {
+    left: 16px;
+    right: initial;
+    top: 20px;
+  }
+
+  .darkContent .siteModeContent {
+    border: 1px solid #1E1919;
+    background-color: #fff;
+  }
+}

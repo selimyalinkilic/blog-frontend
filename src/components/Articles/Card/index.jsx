@@ -24,7 +24,7 @@ const convertToSlug = (str) => {
   return str;
 };
 
-const Card = (article, w) => {
+const Card = ({ article, w }) => {
   const imageUrl =
     article?.thumbnail ||
     "https://res.cloudinary.com/selimyal/image/upload/c_thumb,h_200,w_750/v1596379063/large_blog_header_balloon_5597c1c205.jpg";

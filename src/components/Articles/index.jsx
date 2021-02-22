@@ -25,7 +25,7 @@ const styleLoader = {
   top: 0,
 };
 
-const Articles = ({ articles, name, onLoadMore }) => {
+const Articles = (articles, name) => {
   const [title, setTitle] = useState(false);
   const [loader, setLoader] = useState(true);
   const [theme] = useDarkMode();

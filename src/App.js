@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Toolbar from './components/Toolbar';
 import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
@@ -25,7 +25,7 @@ const App = () => {
         </Switch>
       </div>
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;

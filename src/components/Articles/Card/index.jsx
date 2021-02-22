@@ -8,8 +8,10 @@ const convertToSlug = (str) => {
   str = str.toLowerCase();
 
   // remove accents, swap ñ for n, etc
-  var from = "ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;";
-  var to = "aaaaaeeeeeiiiiooooouuuunc------";
+  var from =
+    "ÁÄÂÀÃÅČÇĆĎÉĚËÈÊẼĔȆĞÍÌÎÏİŇÑÓÖÒÔÕØŘŔŠŞŤÚŮÜÙÛÝŸŽáäâàãåčçćďéěëèêẽĕȇğíìîïıňñóöòôõøðřŕšşťúůüùûýÿžþÞĐđßÆa·/_,:;";
+  var to =
+    "AAAAAACCCDEEEEEEEEGIIIIINNOOOOOORRSSTUUUUUYYZaaaaaacccdeeeeeeeegiiiiinnooooooorrsstuuuuuyyzbBDdBAa------";
   for (var i = 0, l = from.length; i < l; i++) {
     str = str.replace(new RegExp(from.charAt(i), "g"), to.charAt(i));
   }
@@ -22,7 +24,7 @@ const convertToSlug = (str) => {
   return str;
 };
 
-const Card = ({ article, w }) => {
+const Card = (article, w) => {
   const imageUrl =
     article?.thumbnail ||
     "https://res.cloudinary.com/selimyal/image/upload/c_thumb,h_200,w_750/v1596379063/large_blog_header_balloon_5597c1c205.jpg";

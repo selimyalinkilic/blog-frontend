@@ -21,7 +21,7 @@ const App = () => {
         <Switch>
           <Route path='/' component={ArticlesPage} exact />
           <Route path='/article/:id/:title' component={ArticlePage} exact />
-          <Route path='/category/:id' component={CategoryPage} exact />
+          <Route path='/category/:id/:name' component={CategoryPage} exact />
         </Switch>
       </div>
     </ThemeProvider>

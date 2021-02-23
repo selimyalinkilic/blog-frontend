@@ -163,6 +163,11 @@
   color: #fff;
 }
 
+.darkContent .articleContent ul li::marker,
+.darkContent .articleContent ul li strong{
+  color: #fff;
+}
+
 @media (max-width: 991px) {
   .articleDetail {
     background-color: #fff !important;

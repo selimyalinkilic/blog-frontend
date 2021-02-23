@@ -8,6 +8,7 @@ import { useDarkMode } from './themes/useDarkMode';
 import ArticlesPage from './pages/Articles';
 import ArticlePage from './pages/Article';
 import CategoryPage from './pages/Category';
+import './App.css';
 
 const App = () => {
   const [theme, toggleTheme] = useDarkMode();

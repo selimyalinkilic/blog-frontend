@@ -67,28 +67,74 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
-  color: #191A1E;
+  color: #000;
+  margin-bottom: 1.125rem;
 }
 
-.darkContent .articleContent p {
+.articleContent h1 {
+  font-size: 2rem;
+}
+
+.articleContent h2 {
+  font-size: 1.75rem;
+}
+
+.articleContent h3{
+  font-size: 1.5rem;  
+}
+
+.articleContent h4 {
+  font-size: 1.25rem;
+}
+
+.articleContent h5 {
+  font-size: 1rem;
+}
+
+.articleContent h5 {
+  font-size: 0.875rem;
+}
+
+.darkContent .articleContent p,
+.darkContent .articleContent h1,
+.darkContent .articleContent h2,
+.darkContent .articleContent h3,
+.darkContent .articleContent h4,
+.darkContent .articleContent h5,
+.darkContent .articleContent h6{
   color: #fff;
 }
 
-.contentImg {
+.articleContent h1,
+.articleContent h2,
+.articleContent h3,
+.articleContent h4,
+.articleContent h5,
+.articleContent h6{
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 1.125rem;
+}
+
+.contentImg,
+.articleContent figure {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1rem;
+  justify-content: center;  
+  margin-bottom: 1.125rem;
 }
 
-.contentImg img {
+.contentImg img,
+.articleContent img {
   width: 100%;
   max-width: 400px;
   height: auto;
 }
 
-.contentImg span {
+.contentImg span,
+.articleContent figure span {
   font-weight: 400;
   font-style: italic;
   font-size: 12px;

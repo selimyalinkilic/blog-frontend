@@ -10,10 +10,11 @@ import ArticlePage from './pages/Article';
 import CategoryPage from './pages/Category';
 import './App.css';
 
-const App = () => {
+const App = () => {  
   const [theme, toggleTheme] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
-  const themeClass = theme === 'light' ? "lightContent" : "darkContent";
+  const themeClass = theme === 'light' ? "lightContent" : "darkContent";  
+
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />

@@ -32,7 +32,9 @@ const Card = ({ article, w }) => {
     <Col xs={12} md={w} className="articleCard">
       {article && (
         <div className="articleCardContainer">
-          <img src={imageUrl} alt={article?.title}></img>
+          <figure className="articleCardFigure">
+            <img src={imageUrl} alt={article?.title}></img>
+          </figure>
           <div className="articleCardOthers">
             <span className="articleCardTitle">{article?.title}</span>
             <p className="articleCardText">{article?.summary}</p>

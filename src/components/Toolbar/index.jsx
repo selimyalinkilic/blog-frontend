@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import ToggleTheme from "../ToggleTheme";
 import Links from "./Links";
 import MenuBottom from "./MenuBottom";

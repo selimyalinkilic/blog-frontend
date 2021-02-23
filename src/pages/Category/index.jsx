@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Articles from "../../components/Articles";
 import { getCategoryById } from "../../context/actions/categories";
 import { getPostsByCategoryId } from "../../context/actions/posts";
+import Seo from "../../components/Seo";
 
 const CategoryPage = () => {
   const { id } = useParams();
@@ -16,7 +17,12 @@ const CategoryPage = () => {
   const category = useSelector(
     (state) => state?.category?.data?.categories?.name
   );
-  return <Articles articles={posts} name={category} />;
+  return (
+    <>
+      <Seo title={category} />
+      <Articles articles={posts} name={category} />
+    </>
+  );
 };
 
 export default CategoryPage;

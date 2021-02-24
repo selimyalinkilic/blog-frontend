@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
-import Loader from "react-loader-spinner";
 import "./Articles.css";
-import { useDarkMode } from "../../themes/useDarkMode";
+import Skeleton from "react-loading-skeleton";
+import { Col } from "react-bootstrap";
 
 const contentStyle = (contents, classList, newClassList) => {
   contents.forEach(() => {
@@ -14,22 +14,9 @@ const contentStyle = (contents, classList, newClassList) => {
   });
 };
 
-const styleLoader = {
-  width: "100%",
-  height: "100vh",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  position: "absolute",
-  left: 0,
-  top: 0,
-};
-
 const Articles = ({ articles, name }) => {
   const [title, setTitle] = useState(false);
   const [loader, setLoader] = useState(true);
-  const [theme] = useDarkMode();
-  const color = theme === "light" ? "#000" : "#fff";
   const wideClass = "7";
   const smallClass = "5";
   let classList = [smallClass, wideClass];
@@ -42,42 +29,38 @@ const Articles = ({ articles, name }) => {
       setLoader(false);
     }, 1500);
   });
-  // if (onLoadMore) contentStyle(contents, classList, newClassList);
 
   return (
     <div className="articlesContent">
       <h2 className="acTitle">
-        {title ? (
-          name || "Tümü"
-        ) : (
-          <Loader
-            type="ThreeDots"
-            color={color}
-            height={20}
-            width={20}
-            timeout={1500}
-          />
-        )}
+        {title ? name || "Tümü" : <Skeleton height={42} />}
       </h2>
       <div className="articlesList">
         {loader ? (
-          <div style={styleLoader}>
-            <Loader
-              type="ThreeDots"
-              color={color}
-              height={50}
-              width={50}
-              timeout={3000}
-            />
-          </div>
+          <>
+            <Col xs={12} md={7} className="articleCard">
+              <Skeleton height={200} />
+            </Col>
+            <Col xs={12} md={5} className="articleCard">
+              <Skeleton height={200} />
+            </Col>
+            <Col xs={12} md={5} className="articleCard">
+              <Skeleton height={200} />
+            </Col>
+            <Col xs={12} md={7} className="articleCard">
+              <Skeleton height={200} />
+            </Col>
+          </>
         ) : articles?.length >= 1 ? (
-          articles?.map((article, i) => (
-            <Card
-              article={article}
-              key={`article__${article.id}`}
-              w={newClassList[i]}
-            />
-          ))
+          articles
+            ?.sort((a, b) => b.id - a.id)
+            .map((article, i) => (
+              <Card
+                article={article}
+                key={`article__${article.id}`}
+                w={newClassList[i]}
+              />
+            ))
         ) : name ? (
           <p className="notFoundContent">
             {name} kategorisine ait içerik bulunamadı!

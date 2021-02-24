@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Nav } from "react-bootstrap";
+import Skeleton from "react-loading-skeleton";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getAllCategories } from "../../../context/actions/categories";
@@ -34,19 +35,33 @@ const Links = () => {
   const categories = useSelector((state) => state.categories?.data?.categories);
   return (
     <Nav className="flex-column menuLinks">
-      {categories
-        ?.filter((item) => item.name !== "Genel")
-        .map((item) => (
-          <Nav.Item key={item.id}>
-            <NavLink
-              to={`/category/${item.id}/${convertToSlug(item.name)}`}
-              className="nav-link"
-              activeClassName="active"
-            >
-              {item.name}
-            </NavLink>
-          </Nav.Item>
-        ))}
+      {categories ? (
+        categories
+          .filter((item) => item.name !== "Genel")
+          .map((item) => (
+            <Nav.Item key={item.id}>
+              <NavLink
+                to={`/category/${item.id}/${convertToSlug(item.name)}`}
+                className="nav-link"
+                activeClassName="active"
+              >
+                {item.name || <Skeleton />}
+              </NavLink>
+            </Nav.Item>
+          ))
+      ) : (
+        <Nav.Item>
+          <NavLink to="#" className="nav-link">
+            <Skeleton />
+          </NavLink>
+          <NavLink to="#" className="nav-link">
+            <Skeleton />
+          </NavLink>
+          <NavLink to="#" className="nav-link">
+            <Skeleton />
+          </NavLink>
+        </Nav.Item>
+      )}
     </Nav>
   );
 };

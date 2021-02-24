@@ -9,6 +9,8 @@ import ArticlesPage from './pages/Articles';
 import ArticlePage from './pages/Article';
 import CategoryPage from './pages/Category';
 import './App.css';
+import { HelmetProvider } from 'react-helmet-async';
+
 
 const App = () => {  
   const [theme, toggleTheme] = useDarkMode();
@@ -16,17 +18,20 @@ const App = () => {
   const themeClass = theme === 'light' ? "lightContent" : "darkContent";  
 
   return (
-    <ThemeProvider theme={themeMode}>
-      <GlobalStyles />
-      <div className={themeClass + " App"}>
-        <Toolbar toggleTheme={toggleTheme} />
-        <Switch>
-          <Route path='/' component={ArticlesPage} exact />
-          <Route path='/article/:id/:title' component={ArticlePage} exact />
-          <Route path='/category/:id/:name' component={CategoryPage} exact />
-        </Switch>
-      </div>
-    </ThemeProvider>
+      <HelmetProvider>
+        <ThemeProvider theme={themeMode}>
+          <GlobalStyles />
+          <div className={themeClass + " App"}>
+            <Toolbar toggleTheme={toggleTheme} />
+            <Switch>
+              <Route path='/' component={ArticlesPage} exact />
+              <Route path='/article/:id/:title' component={ArticlePage} exact />
+              <Route path='/category/:id/:name' component={CategoryPage} />
+            </Switch>
+          </div>
+        </ThemeProvider>
+      </HelmetProvider>
+
   );
 };
 

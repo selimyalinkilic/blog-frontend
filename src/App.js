@@ -1,19 +1,22 @@
 import React, { useEffect } from 'react';
 import Toolbar from './components/Toolbar';
+import ArticlesPage from './pages/Articles';
+import ArticlePage from './pages/Article';
+import CategoryPage from './pages/Category';
 import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from './themes/theme';
 import { GlobalStyles } from './themes/global';
 import { useDarkMode } from './themes/useDarkMode';
-import ArticlesPage from './pages/Articles';
-import ArticlePage from './pages/Article';
-import CategoryPage from './pages/Category';
-import './App.css';
 import { HelmetProvider } from 'react-helmet-async';
+import dotenv from 'dotenv';
 import ReactGA from 'react-ga';
+import './App.css';
+
+dotenv.config();
 
 function initalGA(){
-  ReactGA.initialize("G-YNELEG1BPX");
+  ReactGA.initialize(process.env.GOOGLE_ANALYTICS_TRACKING_ID);
   ReactGA.pageview(window.location);
 }
 

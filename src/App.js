@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Toolbar from './components/Toolbar';
 import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
@@ -10,17 +10,25 @@ import ArticlePage from './pages/Article';
 import CategoryPage from './pages/Category';
 import './App.css';
 import { HelmetProvider } from 'react-helmet-async';
+import ReactGA from 'react-ga';
 
+function initalGA(){
+  ReactGA.initialize("G-YNELEG1BPX");
+  ReactGA.pageview(window.location);
+}
 
 const App = () => {  
   const [theme, toggleTheme] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
   const themeClass = theme === 'light' ? "lightContent" : "darkContent";  
 
+  useEffect(() => {
+    initalGA();
+  })
   return (
-      <HelmetProvider>
+      <HelmetProvider>                 
         <ThemeProvider theme={themeMode}>
-          <GlobalStyles />
+          <GlobalStyles />          
           <div className={themeClass + " App"}>
             <Toolbar toggleTheme={toggleTheme} />
             <Switch>

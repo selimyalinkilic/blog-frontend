@@ -1,7 +1,7 @@
 import React from "react";
 import ToggleTheme from "../../ToggleTheme";
 import "./MenuTop.css";
-import logo from "../../../assets/img/yagoophoto.png";
+import logo from "../../../assets/img/yagizdophoto-logo.png";
 
 const MenuTop = ({ theme }) => {
   return (

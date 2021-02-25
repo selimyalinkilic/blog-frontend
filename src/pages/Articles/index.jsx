@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Articles from "../../components/Articles";
 import { getAllPosts } from "../../context/actions/posts";
-
 const ArticlesPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {

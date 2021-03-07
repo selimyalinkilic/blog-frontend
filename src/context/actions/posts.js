@@ -1,8 +1,8 @@
 import axiosInstance from '../../helpers/axios';
 
 // Action Creator
-export const getAllPosts = () => (dispatch) => {
-  return axiosInstance.get('/posts')
+export const getAllPosts = (page, limit, sort) => (dispatch) => {
+  return axiosInstance.get(`/posts?page=${page}&limit=${limit}&sort=${sort}`)
   .then((res) => {    
     dispatch({
       type : 'GET_ALL_POSTS_SUCCESS',
@@ -40,8 +40,8 @@ export const getPostById = (id) => (dispatch) => {
   
 }
 
-export const getPostsByCategoryId = (id) => (dispatch) => {
-  return axiosInstance.get(`/posts/category/${id}`)
+export const getPostsByCategoryId = (id, page, limit, sort) => (dispatch) => {
+  return axiosInstance.get(`/posts/category?id=${id}&page=${page}&limit=${limit}&sort=${sort}`)
   .then((res) => {    
     dispatch({
       type : 'GET_POST_BY_CATEGORY_ID_SUCCESS',

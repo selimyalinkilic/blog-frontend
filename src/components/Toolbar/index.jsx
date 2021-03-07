@@ -51,7 +51,7 @@ const Toolbar = ({ toggleTheme }) => {
             </svg>
           </button>
         </div>
-        <Links />
+        <Links toggleClass={handleToggleClass} />
         <MenuBottom />
       </div>
     </header>

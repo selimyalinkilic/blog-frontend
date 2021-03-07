@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Articles from "../../components/Articles";
@@ -9,11 +9,14 @@ import Seo from "../../components/Seo";
 const CategoryPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const [page] = useState(0);
+  const [limit] = useState(10);
+  const [sort] = useState("desc");
   useEffect(() => {
     dispatch(getCategoryById(id));
-    dispatch(getPostsByCategoryId(id));
-  }, [dispatch, id]);
-  const posts = useSelector((state) => state?.posts?.data?.results);
+    dispatch(getPostsByCategoryId(id, page, limit, sort));
+  }, [dispatch, id, page, limit, sort]);
+  const posts = useSelector((state) => state?.posts?.data?.posts?.rows);
   const category = useSelector(
     (state) => state?.category?.data?.categories?.name
   );

@@ -1,10 +1,11 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const ArticleSeo = ({ article }) => {
   return (
     <Helmet>
       <title>{article?.title}</title>
+      <meta name="title" content={article?.title} />
       <meta name="description" content={article?.summary} />
       <meta name="author" content={article?.author?.username} />
       <meta name="twitter:card" content="summary_large_image" />

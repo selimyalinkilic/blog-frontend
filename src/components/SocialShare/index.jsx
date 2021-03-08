@@ -3,9 +3,13 @@ import {
   FacebookShareButton,
   TwitterShareButton,
   WhatsappShareButton,
+  TelegramShareButton,
+  LinkedinShareButton,
   WhatsappIcon,
   TwitterIcon,
   FacebookIcon,
+  TelegramIcon,
+  LinkedinIcon,
 } from "react-share";
 
 import { Row, Col } from "react-bootstrap";
@@ -23,7 +27,7 @@ const index = ({ article }) => {
     <div className="d-flex flex-column align-items-center">
       <span style={shareTextStyle}>Paylaş</span>
       <Row>
-        <Col xs={4} className="d-flex d-lg-none">
+        <Col xs={2} className="d-flex d-lg-none">
           <WhatsappShareButton
             title={article?.title}
             url={window.location.href}
@@ -31,7 +35,15 @@ const index = ({ article }) => {
             <WhatsappIcon size={30} borderRadius={10} />
           </WhatsappShareButton>
         </Col>
-        <Col xs={4} lg={6}>
+        <Col xs={2} className="d-flex d-lg-none">
+          <TelegramShareButton
+            title={article?.title}
+            url={window.location.href}
+          >
+            <TelegramIcon size={30} borderRadius={10} />
+          </TelegramShareButton>
+        </Col>
+        <Col xs={2} lg={4}>
           <TwitterShareButton
             title={article?.title}
             via="Yagizdoo"
@@ -41,7 +53,7 @@ const index = ({ article }) => {
             <TwitterIcon size={30} borderRadius={10} />
           </TwitterShareButton>
         </Col>
-        <Col xs={4} lg={6}>
+        <Col xs={2} lg={4}>
           <FacebookShareButton
             quote={article?.title}
             hashtag={hashTag}
@@ -49,6 +61,15 @@ const index = ({ article }) => {
           >
             <FacebookIcon size={30} borderRadius={10} />
           </FacebookShareButton>
+        </Col>
+        <Col xs={2} lg={4}>
+          <LinkedinShareButton
+            title={article?.title}
+            summary={article?.summary}
+            url={window.location.href}
+          >
+            <LinkedinIcon size={30} borderRadius={10} />
+          </LinkedinShareButton>
         </Col>
       </Row>
     </div>

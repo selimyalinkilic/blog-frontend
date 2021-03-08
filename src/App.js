@@ -8,6 +8,7 @@ import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from './themes/theme';
 import { GlobalStyles } from './themes/global';
 import { useDarkMode } from './themes/useDarkMode';
+import { HelmetProvider } from "react-helmet-async";
 import dotenv from 'dotenv';
 import './App.css';
 
@@ -18,18 +19,20 @@ const App = () => {
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
   const themeClass = theme === 'light' ? "lightContent" : "darkContent";  
   
-  return (                
-    <ThemeProvider theme={themeMode}>
-      <GlobalStyles />          
-      <div className={themeClass + " App"}>
-        <Toolbar toggleTheme={toggleTheme} />
-        <Switch>
-          <Route path='/' component={ArticlesPage} exact />
-          <Route path='/article/:id/:title' component={ArticlePage} exact />
-          <Route path='/category/:id/:name' component={CategoryPage} />
-        </Switch>
-      </div>
-    </ThemeProvider>
+  return (           
+    <HelmetProvider>
+      <ThemeProvider theme={themeMode}>
+        <GlobalStyles />          
+        <div className={themeClass + " App"}>
+          <Toolbar toggleTheme={toggleTheme} />
+          <Switch>
+            <Route path='/' component={ArticlesPage} exact />
+            <Route path='/article/:id/:title' component={ArticlePage} exact />
+            <Route path='/category/:id/:name' component={CategoryPage} />
+          </Switch>
+        </div>
+      </ThemeProvider>
+    </HelmetProvider>
   );
 };
 

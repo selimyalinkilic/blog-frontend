@@ -18,7 +18,7 @@ const shareTextStyle = {
 };
 
 const index = ({ article }) => {
-  const twitterArrays = [article?.summary];
+  const hashTag = [(article?.category?.name).toLowerCase()];
   return (
     <div className="d-flex flex-column align-items-center">
       <span style={shareTextStyle}>Paylaş</span>
@@ -26,28 +26,28 @@ const index = ({ article }) => {
         <Col xs={4} className="d-flex d-lg-none">
           <WhatsappShareButton
             title={article?.title}
-            url={`https://blog.yagizdokumaci.com/` + window.location.pathname}
+            url={window.location.href}
           >
-            <WhatsappIcon size={30} borderRadius={50} />
+            <WhatsappIcon size={30} borderRadius={10} />
           </WhatsappShareButton>
         </Col>
         <Col xs={4} lg={6}>
           <TwitterShareButton
             title={article?.title}
             via="Yagizdoo"
-            hashtags={twitterArrays}
-            url={`https://blog.yagizdokumaci.com` + window.location.pathname}
+            hashtags={hashTag}
+            url={window.location.href}
           >
-            <TwitterIcon size={30} borderRadius={50} />
+            <TwitterIcon size={30} borderRadius={10} />
           </TwitterShareButton>
         </Col>
         <Col xs={4} lg={6}>
           <FacebookShareButton
             quote={article?.title}
-            hashtag={article.summary}
-            url={`https://blog.yagizdokumaci.com/` + window.location.pathname}
+            hashtag={hashTag}
+            url={window.location.href}
           >
-            <FacebookIcon size={30} borderRadius={50} />
+            <FacebookIcon size={30} borderRadius={10} />
           </FacebookShareButton>
         </Col>
       </Row>

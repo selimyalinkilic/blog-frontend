@@ -9,7 +9,7 @@ import ArticleSeo from "../Seo/ArticleSeo";
 const Article = ({ article }) => {
   return (
     <div className="articleDetail">
-      <ArticleSeo />
+      <ArticleSeo article={article} />
       {article ? (
         <div className="articleContainer">
           <h3 className="articleTitle">{article.title}</h3>

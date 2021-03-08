@@ -4,12 +4,10 @@ import Moment from "react-moment";
 import parse from "html-react-parser";
 import PageLoader from "../CustomLoaders/PageLoader";
 import SocialShare from "../SocialShare";
-import ArticleSeo from "../Seo/ArticleSeo";
 
 const Article = ({ article }) => {
   return (
     <div className="articleDetail">
-      <ArticleSeo article={article} />
       {article ? (
         <div className="articleContainer">
           <h3 className="articleTitle">{article.title}</h3>

@@ -3,10 +3,13 @@ import "./Article.css";
 import Moment from "react-moment";
 import parse from "html-react-parser";
 import PageLoader from "../CustomLoaders/PageLoader";
+import SocialShare from "../SocialShare";
+import ArticleSeo from "../Seo/ArticleSeo";
 
 const Article = ({ article }) => {
   return (
     <div className="articleDetail">
+      <ArticleSeo />
       {article ? (
         <div className="articleContainer">
           <h3 className="articleTitle">{article.title}</h3>
@@ -17,6 +20,7 @@ const Article = ({ article }) => {
             <span className="articleUser">{article.author?.username}</span>
           </div>
           <div className="articleContent">{parse(article.content)}</div>
+          <SocialShare article={article} />
         </div>
       ) : (
         <PageLoader />

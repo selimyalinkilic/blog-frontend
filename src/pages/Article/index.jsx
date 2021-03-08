@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Article from "../../components/Article";
 import { getPostById } from "../../context/actions/posts";
-import ArticleSeo from "../../components/ArticleSeo";
+import ArticleSeo from "../../components/Seo/ArticleSeo";
 
 const ArticlePage = () => {
   const { id } = useParams();

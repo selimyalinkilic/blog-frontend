@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 const ArticleSeo = ({ article }) => {
   return (
     <Helmet>
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@Yagizdoo" />
       <meta name="twitter:title" content={article?.title} />
       <meta name="twitter:description" content={article?.summary} />

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Article from "../../components/Article";
 import { getPostById } from "../../context/actions/posts";
-import ArticleSeo from "../../components/Seo/ArticleSeo";
+import Seo from "../../components/Seo";
 
 const ArticlePage = () => {
   const { id } = useParams();
@@ -14,7 +14,7 @@ const ArticlePage = () => {
   const article = useSelector((state) => state?.posts?.data?.result);
   return (
     <>
-      <ArticleSeo article={article} />
+      <Seo article={article} />
       <Article article={article} key={id} />
     </>
   );

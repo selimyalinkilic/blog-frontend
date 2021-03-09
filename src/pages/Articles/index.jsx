@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Articles from "../../components/Articles";
 import { getAllPosts } from "../../context/actions/posts";
+import Seo from "../../components/Seo";
 const ArticlesPage = () => {
   const dispatch = useDispatch();
   const [page] = useState(0);
@@ -11,7 +12,12 @@ const ArticlesPage = () => {
     dispatch(getAllPosts(page, limit, sort));
   }, [dispatch, page, limit, sort]);
   const posts = useSelector((state) => state?.posts?.data?.posts?.rows);
-  return <Articles articles={posts} />;
+  return (
+    <>
+      <Seo />
+      <Articles articles={posts} />
+    </>
+  );
 };
 
 export default ArticlesPage;

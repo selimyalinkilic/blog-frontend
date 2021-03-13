@@ -3,7 +3,6 @@ import ToggleTheme from "../ToggleTheme";
 import Links from "./Links";
 import MenuBottom from "./MenuBottom";
 import MenuTop from "./MenuTop";
-import "./Toolbar.css";
 
 const Toolbar = ({ toggleTheme }) => {
   const [visibleMenu, setVisibleMenu] = useState(false);

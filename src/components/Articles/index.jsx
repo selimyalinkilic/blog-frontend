@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import PageLoader from "../CustomLoaders/PageLoader";
-import "./Articles.css";
 
 const notFoundStyle = {
   width: "100%",
@@ -24,7 +23,7 @@ const contentStyle = (contents, classList, newClassList) => {
   });
 };
 
-const Articles = ({ articles, name, fetchData }) => {
+const Articles = ({ articles, name }) => {
   const [title, setTitle] = useState(false);
   const [loader, setLoader] = useState(true);
   const [data, setData] = useState(false);
@@ -58,15 +57,13 @@ const Articles = ({ articles, name, fetchData }) => {
       <div className="articlesList">
         {loader && <PageLoader />}
         {data &&
-          articles
-            ?.filter((article) => article.published === true)
-            ?.map((article, i) => (
-              <Card
-                article={article}
-                key={`article__${article.id}`}
-                w={newClassList[i]}
-              />
-            ))}
+          articles?.map((article, i) => (
+            <Card
+              article={article}
+              key={`article__${article.id}`}
+              w={newClassList[i]}
+            />
+          ))}
         {message && !data && !loader ? (
           <div style={notFoundStyle}>
             {name ? (

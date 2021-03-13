@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
 
-import "./Card.css";
-
 const Card = ({ article, w }) => {
   return (
     <Col xs={12} md={w} className="articleCard">

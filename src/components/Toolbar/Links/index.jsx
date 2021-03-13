@@ -4,28 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getAllCategories } from "../../../context/actions/categories";
 import MenuLoader from "../../CustomLoaders/MenuLoader";
-import "./Links.css";
-
-const convertToSlug = (str) => {
-  str = str.replace(/^\s+|\s+$/g, ""); // trim
-  str = str.toLowerCase();
-
-  // remove accents, swap ñ for n, etc
-  var from =
-    "ÁÄÂÀÃÅČÇĆĎÉĚËÈÊẼĔȆĞÍÌÎÏİŇÑÓÖÒÔÕØŘŔŠŞŤÚŮÜÙÛÝŸŽáäâàãåčçćďéěëèêẽĕȇğíìîïıňñóöòôõøðřŕšşťúůüùûýÿžþÞĐđßÆa·/_,:;";
-  var to =
-    "AAAAAACCCDEEEEEEEEGIIIIINNOOOOOORRSSTUUUUUYYZaaaaaacccdeeeeeeeegiiiiinnooooooorrsstuuuuuyyzbBDdBAa------";
-  for (var i = 0, l = from.length; i < l; i++) {
-    str = str.replace(new RegExp(from.charAt(i), "g"), to.charAt(i));
-  }
-
-  str = str
-    .replace(/[^a-z0-9 -]/g, "") // remove invalid chars
-    .replace(/\s+/g, "-") // collapse whitespace and replace by -
-    .replace(/-+/g, "-"); // collapse dashes
-
-  return str;
-};
 
 const Links = ({ toggleClass }) => {
   const dispatch = useDispatch();
@@ -41,7 +19,7 @@ const Links = ({ toggleClass }) => {
           .map((item) => (
             <Nav.Item key={item.id}>
               <NavLink
-                to={`/category/${item.id}/${convertToSlug(item.name)}`}
+                to={`/category/${item.id}/${item.slug}`}
                 className="nav-link"
                 activeClassName="active"
                 onClick={toggleClass}

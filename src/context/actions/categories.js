@@ -2,7 +2,7 @@ import axiosInstance from '../../helpers/axios';
 
 // Action Creator
 export const getAllCategories = () => (dispatch) => {    
-  return axiosInstance.get('/category')
+  return axiosInstance.get('/category/published')
   .then((res) => {    
     dispatch({
       type : 'GET_ALL_CATEGORIES_SUCCESS',

@@ -1,5 +1,4 @@
 import React from "react";
-import "./MenuBottom.css";
 
 const MenuBottom = () => {
   return (

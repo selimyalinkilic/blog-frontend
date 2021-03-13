@@ -1,5 +1,4 @@
 import React from "react";
-import "./ToggleTheme.css";
 import mode from "../../assets/img/icon/sitemode.png";
 
 const ToggleTheme = ({ theme }) => {

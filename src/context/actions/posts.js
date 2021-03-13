@@ -2,7 +2,7 @@ import axiosInstance from '../../helpers/axios';
 
 // Action Creator
 export const getAllPosts = (page, limit, sort) => (dispatch) => {
-  return axiosInstance.get(`/posts?page=${page}&limit=${limit}&sort=${sort}`)
+  return axiosInstance.get(`/posts/published?page=${page}&limit=${limit}&sort=${sort}`)
   .then((res) => {    
     dispatch({
       type : 'GET_ALL_POSTS_SUCCESS',

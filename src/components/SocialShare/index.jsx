@@ -7,9 +7,9 @@ const index = ({ article }) => {
   return (
     <div className="d-flex flex-column align-items-center">
       <Row>
-        <Col xs={2} className="d-flex d-lg-none">
+        <Col>
           <a
-            className="resp-sharing-button__link"
+            className="resp-sharing-button__link d-lg-none"
             href={`https://wa.me/?text=${article?.title}, ${window.location.href}`}
             target="_blank"
             rel="noreferrer"
@@ -26,10 +26,8 @@ const index = ({ article }) => {
               </div>
             </div>
           </a>
-        </Col>
-        <Col xs={2} className="d-flex d-lg-none">
           <a
-            className="resp-sharing-button__link"
+            className="resp-sharing-button__link d-lg-none"
             href={`https://telegram.me/share/url?text=${article?.title}&url=${window.location.href}`}
             target="_blank"
             rel="noreferrer"
@@ -46,8 +44,6 @@ const index = ({ article }) => {
               </div>
             </div>
           </a>
-        </Col>
-        <Col xs={2} lg={4}>
           <a
             className="resp-sharing-button__link"
             href="https://facebook.com/sharer/sharer.php?u=http%3A%2F%2Fsharingbuttons.io"
@@ -66,8 +62,6 @@ const index = ({ article }) => {
               </div>
             </div>
           </a>
-        </Col>
-        <Col xs={2} lg={4}>
           <a
             className="resp-sharing-button__link"
             href={`https://twitter.com/intent/tweet/?text=${article?.title}&url=${window.location.href}`}
@@ -86,8 +80,6 @@ const index = ({ article }) => {
               </div>
             </div>
           </a>
-        </Col>
-        <Col xs={2} lg={4}>
           <a
             className="resp-sharing-button__link"
             href={`https://www.linkedin.com/shareArticle?mini=true&url=${window.location.href}&title=${article?.title}&summary=${article?.summary}&source=${window.location.href}`}

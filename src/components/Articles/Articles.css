@@ -8,6 +8,7 @@
   min-height: 100vh;
   padding: 40px;
   position: relative;
+  content-visibility: auto;
 }
 
 .darkContent .articlesContent {

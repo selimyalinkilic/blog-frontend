@@ -9,7 +9,7 @@ const Card = ({ article, w }) => {
     <Col xs={12} md={w} className="articleCard">
       <div className="articleCardContainer">
         <figure className="articleCardFigure">
-          <img src={article.thumbnail} alt={article.title}></img>
+          <img src={article.thumbnail} alt={article.title} loading="lazy" />
         </figure>
         <div className="articleCardOthers">
           <span className="articleCardTitle">{article.title}</span>

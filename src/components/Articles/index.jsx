@@ -24,7 +24,7 @@ const contentStyle = (contents, classList, newClassList) => {
   });
 };
 
-const Articles = ({ articles, name }) => {
+const Articles = ({ articles, name, fetchData }) => {
   const [title, setTitle] = useState(false);
   const [loader, setLoader] = useState(true);
   const [data, setData] = useState(false);
@@ -32,9 +32,8 @@ const Articles = ({ articles, name }) => {
   const wideClass = "7";
   const smallClass = "5";
   let classList = [smallClass, wideClass];
-  let contents = [articles];
   let newClassList = [];
-  contentStyle(contents, classList, newClassList);
+  if (articles) contentStyle(articles, classList, newClassList);
   useEffect(() => {
     if (articles?.length >= 1) {
       setLoader(false);
@@ -50,7 +49,7 @@ const Articles = ({ articles, name }) => {
     setTimeout(() => {
       setLoader(false);
       setMessage(true);
-    }, 3000);
+    }, 4000);
   }, [articles, name]);
 
   return (
@@ -59,13 +58,15 @@ const Articles = ({ articles, name }) => {
       <div className="articlesList">
         {loader && <PageLoader />}
         {data &&
-          articles?.map((article, i) => (
-            <Card
-              article={article}
-              key={`article__${article.id}`}
-              w={newClassList[i]}
-            />
-          ))}
+          articles
+            ?.filter((article) => article.published === true)
+            ?.map((article, i) => (
+              <Card
+                article={article}
+                key={`article__${article.id}`}
+                w={newClassList[i]}
+              />
+            ))}
         {message && !data && !loader ? (
           <div style={notFoundStyle}>
             {name ? (

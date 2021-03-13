@@ -36,18 +36,20 @@ const Links = ({ toggleClass }) => {
   return (
     <Nav className="flex-column menuLinks">
       {categories ? (
-        categories.map((item) => (
-          <Nav.Item key={item.id}>
-            <NavLink
-              to={`/category/${item.id}/${convertToSlug(item.name)}`}
-              className="nav-link"
-              activeClassName="active"
-              onClick={toggleClass}
-            >
-              {item.name}
-            </NavLink>
-          </Nav.Item>
-        ))
+        categories
+          .sort((a, b) => b.placement - a.placement)
+          .map((item) => (
+            <Nav.Item key={item.id}>
+              <NavLink
+                to={`/category/${item.id}/${convertToSlug(item.name)}`}
+                className="nav-link"
+                activeClassName="active"
+                onClick={toggleClass}
+              >
+                {item.name}
+              </NavLink>
+            </Nav.Item>
+          ))
       ) : (
         <MenuLoader />
       )}

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Articles from "../../components/Articles";
 import { getAllPosts } from "../../context/actions/posts";
 import Seo from "../../components/Seo";
+
 const ArticlesPage = () => {
   const dispatch = useDispatch();
   const [page] = useState(0);

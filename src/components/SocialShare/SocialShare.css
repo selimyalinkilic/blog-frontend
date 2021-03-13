@@ -13,7 +13,10 @@
   border-radius: 5px;
   transition: 25ms ease-out;
   padding: 0.5em 0.75em;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  min-height: 40px;
 }
 
 .resp-sharing-button__icon svg {
@@ -31,7 +34,11 @@
 /* Non solid icons get a stroke */
 .resp-sharing-button__icon {
   stroke: #fff;
-  fill: none
+  fill: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 /* Solid icons get a fill */

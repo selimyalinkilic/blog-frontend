@@ -16,11 +16,7 @@ const ArticleSeo = ({ article }) => {
         content={article?.author?.username}
         data-react-helmet="true"
       />
-      <meta
-        name="twitter:card"
-        content="summary_large_image"
-        data-react-helmet="true"
-      />
+      <meta name="twitter:card" content="summary" data-react-helmet="true" />
       <meta name="twitter:site" content="@Yagizdoo" data-react-helmet="true" />
       <meta
         name="twitter:title"
@@ -38,6 +34,11 @@ const ArticleSeo = ({ article }) => {
         data-react-helmet="true"
       />
       <meta
+        name="twitter:image"
+        content={article?.thumbnail}
+        data-react-helmet="true"
+      />
+      {/* <meta
         name="twitter:image:src"
         content={article?.thumbnail}
         data-react-helmet="true"
@@ -46,7 +47,7 @@ const ArticleSeo = ({ article }) => {
         name="twitter:image:alt"
         content={article?.summary}
         data-react-helmet="true"
-      />
+      /> */}
       <meta
         property="og:url"
         content={window.location.href}

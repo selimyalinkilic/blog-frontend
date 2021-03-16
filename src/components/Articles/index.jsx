@@ -46,19 +46,21 @@ const Articles = ({ articles, name }) => {
     }
 
     setTimeout(() => {
-      if (articles?.length < 1) {
-        setLoader(true);
-        setData(false);
-      } else {
+      if (articles?.length >= 1) {
         setLoader(false);
         setData(true);
+      } else {
+        if (articles && articles.length === 0) {
+          setLoader(false);
+          setMessage(true);
+        } else {
+          setLoader(true);
+          setData(false);
+          setMessage(false);
+        }
       }
     }, 4000);
-    setTimeout(() => {
-      setLoader(false);
-      setMessage(true);
-    }, 6000);
-  }, [articles, name, data]);
+  }, [articles, name]);
 
   return (
     <div className="articlesContent">

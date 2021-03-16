@@ -1110,7 +1110,10 @@ blockquote span {
   .articleCard {
     margin-bottom: 20px;
   }
-
+  .articleCardTitle{
+    font-size: 18px;
+    line-height: 22px;
+  }
   .articleCardOthers {
     padding: 31px 21px;
   }

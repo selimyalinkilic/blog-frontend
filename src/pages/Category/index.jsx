@@ -4,10 +4,10 @@ import { useParams } from "react-router-dom";
 import Articles from "../../components/Articles";
 import { getCategoryById } from "../../context/actions/categories";
 import { getPostsByCategoryId } from "../../context/actions/posts";
-import Seo from "../../components/Seo";
 import ContentLoader from "../../components/CustomLoaders/ContentLoader";
 import LoadMore from "../../components/LoadMoreButton";
 import MainLayout from "../../layouts/MainLayout";
+import ArticlesSeo from "../../components/Seo/ArticlesSeo";
 
 const CategoryPage = () => {
   const dispatch = useDispatch();
@@ -21,6 +21,7 @@ const CategoryPage = () => {
     dispatch(getPostsByCategoryId(id, page, limit, sort));
   }, [dispatch, id, page, limit, sort]);
   const posts = useSelector((state) => state?.posts?.data?.posts?.rows);
+  const totalPosts = useSelector((state) => state?.posts?.data?.totalPosts);
   const category = useSelector(
     (state) => state?.category?.data?.categories?.name
   );
@@ -33,11 +34,11 @@ const CategoryPage = () => {
   };
   return (
     <MainLayout>
-      <Seo title={category} />
+      <ArticlesSeo title={category} />
       <div className={`articles ${loading === true ? "loading" : ""}`}>
         <Articles articles={posts} name={category} />
         {loading === true && <ContentLoader />}
-        {limit === posts?.length && <LoadMore handleClick={fetchMore} />}
+        {limit < totalPosts && <LoadMore handleClick={fetchMore} />}
       </div>
     </MainLayout>
   );

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Articles from "../../components/Articles";
 import { getAllPosts } from "../../context/actions/posts";
-import Seo from "../../components/Seo";
 import LoadMore from "../../components/LoadMoreButton";
 import ContentLoader from "../../components/CustomLoaders/ContentLoader";
 import MainLayout from "../../layouts/MainLayout";
@@ -17,6 +16,8 @@ const ArticlesPage = () => {
     dispatch(getAllPosts(page, limit, sort));
   }, [dispatch, page, limit, sort]);
   const posts = useSelector((state) => state?.posts?.data?.posts?.rows);
+  const totalPosts = useSelector((state) => state?.posts?.data?.totalPosts);
+
   const fetchMore = () => {
     setLoading(true);
     setTimeout(() => {
@@ -26,11 +27,10 @@ const ArticlesPage = () => {
   };
   return (
     <MainLayout>
-      <Seo />
       <div className={`articles ${loading === true ? "loading" : ""}`}>
         <Articles articles={posts} />
         {loading === true && <ContentLoader />}
-        {limit === posts?.length && <LoadMore handleClick={fetchMore} />}
+        {limit < totalPosts && <LoadMore handleClick={fetchMore} />}
       </div>
     </MainLayout>
   );

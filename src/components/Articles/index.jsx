@@ -34,7 +34,7 @@ const Articles = ({ articles, name }) => {
   let newClassList = [];
   if (articles) contentStyle(articles, classList, newClassList);
   useEffect(() => {
-    if (articles?.length >= 1) {
+    if (articles?.length >= 0) {
       setLoader(false);
       setData(true);
     } else {
@@ -44,23 +44,7 @@ const Articles = ({ articles, name }) => {
     if (name?.length >= 1) {
       setTitle(true);
     }
-
-    setTimeout(() => {
-      if (articles?.length >= 1) {
-        setLoader(false);
-        setData(true);
-      } else {
-        if (articles && articles.length === 0) {
-          setLoader(false);
-          setMessage(true);
-        } else {
-          setLoader(true);
-          setData(false);
-          setMessage(false);
-        }
-      }
-    }, 4000);
-  }, [articles, name]);
+  }, [articles, name, data]);
 
   return (
     <div className="articlesContent">
